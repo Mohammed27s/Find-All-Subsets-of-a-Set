@@ -1,0 +1,78 @@
+import java.lang.reflect.Array;
+import java.util.*;
+
+//Find All Subsets of a Set
+public class FindAllSubsetsSet {
+
+    public static void main(String[] args){
+
+
+        Set<Integer> originalSet1 = new HashSet<>(Arrays.asList(1, 2));
+        Set<Integer> originalSet2 = new HashSet<>(Arrays.asList(1, 2, 3));
+
+
+        System.out.println("The first subSet for Set "+originalSet1+"\n");
+        Set<Set<Integer>> subSet1 = subset(originalSet1);
+        subSetoutput(subSet1);
+
+        System.out.println("\n");
+
+        System.out.println("The second subSeb for Set "+originalSet2+"\n");
+        Set<Set<Integer>> subSet2 = subset(originalSet2);
+        subSetoutput(subSet2);
+
+
+        
+    }
+
+    public static Set<Set<Integer>> subset(Set<Integer> bigSetOriginal){
+
+        Set<Set<Integer>> powersubSet = new HashSet<>();
+        List<Integer> subSetList = new ArrayList<>(bigSetOriginal);
+        Integer sizeSet = subSetList.size();
+
+
+        if(bigSetOriginal.equals(sizeSet)){
+
+            System.out.println("The Set is empty ");
+
+            }
+        else {
+
+        System.out.println("The Set is not empty ");
+        }
+
+
+
+        Integer countSet = 1 << sizeSet;
+
+
+        for(Integer i = 0; i < countSet; i++){
+
+            Set<Integer> newSubSet = new HashSet<>();
+
+                for(Integer j = 0; j < sizeSet; j++){
+
+                    if((i & (1 << j)) > 0){
+
+                        newSubSet.add(subSetList.get(j));
+
+                }
+
+            }
+                powersubSet.add(newSubSet);
+        }
+
+       return powersubSet ;
+    }
+
+    public static void subSetoutput(Set<Set<Integer>> subsets){
+
+        for(Set<Integer> subset : subsets){
+
+            System.out.println(subset);
+        }
+
+
+    }
+}

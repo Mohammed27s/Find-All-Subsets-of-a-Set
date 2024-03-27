@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 
 //Find All Subsets of a Set
@@ -13,13 +12,13 @@ public class FindAllSubsetsSet {
 
         System.out.println("The first subSet for Set "+originalSet1+"\n");
         Set<Set<Integer>> subSet1 = subset(originalSet1);
-        subSetoutput(subSet1);
+        subSetOutput(subSet1);
 
         System.out.println("\n");
 
         System.out.println("The second subSeb for Set "+originalSet2+"\n");
         Set<Set<Integer>> subSet2 = subset(originalSet2);
-        subSetoutput(subSet2);
+        subSetOutput(subSet2);
 
 
         
